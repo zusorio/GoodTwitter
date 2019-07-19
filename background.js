@@ -11,8 +11,16 @@ function rewriteUserAgentHeader(e) {
     return {requestHeaders: e.requestHeaders};
 }
 
+function removeCookie() {
+    var clear = browser.browsingData.removeCookies({
+        hostnames: ["twitter.com"]
+    });
+}
+
 browser.webRequest.onBeforeSendHeaders.addListener(
     rewriteUserAgentHeader,
     {urls: [targetPage]},
     ["blocking", "requestHeaders"]
 );
+
+browser.runtime.onInstalled.addListener(removeCookie);
