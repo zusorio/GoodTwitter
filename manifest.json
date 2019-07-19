@@ -1,0 +1,18 @@
+{
+
+  "description": "Making Twitter great again",
+  "manifest_version": 2,
+  "name": "GoodTwitter",
+  "version": "1.0",
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "https://*.twitter.com/"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  }
+
+}
