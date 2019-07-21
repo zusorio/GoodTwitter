@@ -15,9 +15,11 @@
     "scripts": ["background.js"]
   },
   
-  "content_scripts": {
-    "matches": ["https://*.twitter.com/*"],
-    "js": ["fix-paste.js"]
-  }
+  "content_scripts": [
+    {
+      "matches": ["https://*.twitter.com/*"],
+      "js": ["fix-paste.js"]
+    }
+  ]
   
 }
