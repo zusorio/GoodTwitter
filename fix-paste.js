@@ -1,19 +1,30 @@
 document.addEventListener("keydown", function(e) {
+    
+    // When pressing CTRL+V
     if (e.key == "v" && e.ctrlKey) {
         
-        var pos = getSelection().getRangeAt(0).startOffset;
+        var tweetBox = document.getElementById("tweet-box-home-timeline");
         
+        // Get caret position
+        var range = window.getSelection().getRangeAt(0);
+        var preCaretRange = range.cloneRange();
+        preCaretRange.selectNodeContents(tweetBox);
+        preCaretRange.setEnd(range.endContainer, range.endOffset);
+        var pos = preCaretRange.toString().length;
+        
+        // Create temporary input field
         var tempInput = document.createElement("textarea");
         document.body.appendChild(tempInput);
         tempInput.focus();
         
         tempInput.addEventListener("input", function(e) {
            
-            var tweetBox = document.getElementById("tweet-box-home-timeline");
             tweetBox.focus();
             
+            // For every character in the temporary input field
             tempInput.value.split("").forEach(function(char, i) {
                 
+                // Call keydown event
                 tweetBox.dispatchEvent(
                     new KeyboardEvent("keydown", {
                         type: "keydown",
@@ -26,12 +37,19 @@ document.addEventListener("keydown", function(e) {
                     })
                 );
                 
-                var textArr = tweetBox.innerText.split("");
+                // Add character
+                var textArr = tweetBox.textContent.split("");
                 textArr.splice(pos + i, 0, char);
-                tweetBox.innerText = textArr.join("");
+                tweetBox.textContent = textArr.join("");
                 
             });
             
+            // Remove all temporary input fields
+            document.querySelectorAll("textarea").forEach(function(textarea) {
+                if (textarea.classList.length == 0) textarea.outerHTML = "";
+            });
+            
+            // Scroll to the top
             setTimeout(function() {
                 scrollTo(0, 0);
             });
@@ -39,4 +57,5 @@ document.addEventListener("keydown", function(e) {
         });
         
     }
+    
 });
