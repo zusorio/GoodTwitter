@@ -12,8 +12,11 @@ function rewriteUserAgentHeader(e) {
 }
 
 function removeCookie() {
-    var clear = browser.browsingData.removeCookies({
-        hostnames: ["twitter.com"]
+    browser.browsingData.remove({"hostnames": ["twitter.com"]}, {"cache": true});
+    browser.tabs.query({url: "*://*.twitter.com/*"}, function (result) {
+        result.forEach(function (tab) {
+            chrome.tabs.reload(tab.id)
+        })
     });
 }
 
