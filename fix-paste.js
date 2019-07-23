@@ -2,9 +2,14 @@ document.addEventListener("keydown", function(e) {
     
     // When pressing CTRL+V
     if (e.key == "v" && e.ctrlKey) {
-        
-        var tweetBox = document.getElementById("tweet-box-home-timeline");
-        
+
+        // Get the active element
+        var tweetBox = document.activeElement;
+        // If it's not a tweet return
+        if(tweetBox.getAttribute("name") !== "tweet") {
+            return
+        }
+
         // Get caret position
         var range = window.getSelection().getRangeAt(0);
         var preCaretRange = range.cloneRange();
