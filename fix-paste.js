@@ -1,8 +1,7 @@
 document.addEventListener("keydown", function(e) {
     
     // When pressing CTRL+V
-    if (e.key == "v" && e.ctrlKey) {
-
+    if (e.key == "v" && e.ctrlKey || e.key == "v" && e.metaKey) {
         // Get the active element
         var tweetBox = document.activeElement;
         // If it's not a tweet return
