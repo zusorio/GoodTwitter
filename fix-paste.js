@@ -18,6 +18,8 @@ document.addEventListener("keydown", function(e) {
         
         // Create temporary input field
         var tempInput = document.createElement("textarea");
+        tempInput.style.position = "absolute";
+        tempInput.style.top = "0";
         document.body.appendChild(tempInput);
         tempInput.focus();
         
