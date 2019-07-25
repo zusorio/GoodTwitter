@@ -11,7 +11,7 @@ function rewriteUserAgentHeader(e) {
     return {requestHeaders: e.requestHeaders};
 }
 
-function removeCookie() {
+function clearCache() {
     browser.browsingData.remove({"hostnames": ["twitter.com"]}, {"cache": true});
     browser.tabs.query({url: "*://*.twitter.com/*"}, function (result) {
         result.forEach(function (tab) {
@@ -26,4 +26,4 @@ browser.webRequest.onBeforeSendHeaders.addListener(
     ["blocking", "requestHeaders"]
 );
 
-browser.runtime.onInstalled.addListener(removeCookie);
+browser.runtime.onInstalled.addListener(clearCache);
