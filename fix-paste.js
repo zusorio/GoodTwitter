@@ -5,7 +5,7 @@ document.addEventListener("keydown", function(e) {
         // Get the active element
         var tweetBox = document.activeElement;
         // If it's not a tweet return
-        if(tweetBox.getAttribute("name") !== "tweet") {
+        if(!tweetBox.id.includes("tweet-box")) {
             return
         }
 
