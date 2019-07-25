@@ -4,7 +4,8 @@ I don't really know any JS or anything about addons, pull requests are appreciat
 This was built in 10 minutes, so good luck.
 
 ## Installation
-[Firefox Add-ons](https://addons.mozilla.org/addon/goodtwitter)
+This extension is available on [Firefox Add-ons](https://addons.mozilla.org/addon/goodtwitter).
 
 ## License
-[MIT](https://opensource.org/licenses/MIT)
+This extension is released under the [MIT License](https://opensource.org/licenses/MIT).
+See [LICENSE](LICENSE) for more details.
