@@ -2,22 +2,24 @@
 
 const targetPage = "https://*.twitter.com/*";
 
-const ua = "Mozilla/5.0 (Windows NT 9.0; WOW64; Trident/7.0; rv:11.0) like Gecko";
+const ua = "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) Waterfox/56.2 ";
 
 function rewriteUserAgentHeader(e) {
-    e.requestHeaders.forEach(function(header) {
-        if (header.name.toLowerCase() == "user-agent") {
-            header.value = ua;
-        }
-    });
-    return {requestHeaders: e.requestHeaders};
+    if (!e.url.startsWith("https://mobile.twitter.com")) {
+        e.requestHeaders.forEach(function (header) {
+            if (header.name.toLowerCase() === "user-agent") {
+                header.value = ua;
+            }
+        });
+        return {requestHeaders: e.requestHeaders};
+    }
 }
 
 function clearCache() {
     browser.browsingData.remove({"hostnames": ["twitter.com"]}, {"cache": true});
     browser.tabs.query({url: "*://*.twitter.com/*"}, function (result) {
         result.forEach(function (tab) {
-            chrome.tabs.reload(tab.id)
+            browser.tabs.reload(tab.id)
         })
     });
 }

@@ -3,7 +3,7 @@
   "description": "Forces your browser to use old twitter.",
   "manifest_version": 2,
   "name": "GoodTwitter",
-  "version": "1.8",
+  "version": "2.0",
 
   "permissions": [
     "webRequest",
@@ -11,6 +11,17 @@
     "https://*.twitter.com/",
     "tabs",
     "browsingData"
+  ],
+
+  "browser_action": {
+    "default_icon": "128.png",
+    "default_title": "GoodTwitter",
+    "default_popup": "popup/info.html"
+  },
+
+  "web_accessible_resources": [
+    "popup/milligram.css",
+    "popup/GoodTwitter.css"
   ],
 
   "background": {
@@ -25,6 +36,7 @@
   ],
   "icons": {
     "128": "128.png"
-  }
+  },
+  "content_security_policy": "default-src 'self'"
   
 }
