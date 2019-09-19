@@ -19,6 +19,7 @@ then [about](https://i.imgur.com/DDl1lic.png), then make sure [firefox is up to 
 
 If all that didn't work create an issue on GitHub [here](https://github.com/ZusorCode/GoodTwitter/issues)
 # Known issues
+## Most of these should be fixed in the newest version. Try updating to it!
 ## Copy and Paste is bugged
 Copy and Paste should be working for text. It won't work for images unfortunately, I don't really know how to fix it.
 Refer to issue [#4](https://github.com/ZusorCode/GoodTwitter/issues/4).
