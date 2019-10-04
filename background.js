@@ -9,6 +9,8 @@ function rewriteUserAgentHeader(e) {
         e.requestHeaders.forEach(function (header) {
             if (header.name.toLowerCase() === "user-agent") {
                 header.value = ua;
+            }else if (header.name.toLowerCase() ==="cookie") {
+                header.value = header.value.replace(/rweb_optin=.*?(; .*)?$/i, "rweb_optin=off$1");
             }
         });
         return {requestHeaders: e.requestHeaders};
