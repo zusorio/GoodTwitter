@@ -3,7 +3,7 @@
   "description": "Forces your browser to use old twitter.",
   "manifest_version": 2,
   "name": "GoodTwitter",
-  "version": "2.2",
+  "version": "2.5",
 
   "permissions": [
     "webRequest",
@@ -27,7 +27,7 @@
   "background": {
     "scripts": ["background.js"]
   },
-  
+
   "content_scripts": [
     {
       "matches": ["https://*.twitter.com/*"],
@@ -38,5 +38,5 @@
     "128": "128.png"
   },
   "content_security_policy": "default-src 'self'"
-  
+
 }
