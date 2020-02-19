@@ -1,6 +1,9 @@
 # Troubleshooting
 If the add-on isn't working for you, try these steps
 
+# Try the fixed Version
+This Version isn't allowed on Mozilla AMO due to using eval even though the use isn't dangerous. You can download it from the releases [here](https://github.com/ZusorCode/GoodTwitter/releases/tag/2.2). The code for this is open-source so if you're doubing that the code is safe feel free to look. If this doesn't help you, read on!
+
 # The add-on isn't working/stopped working
 This is for when you're suddenly back to new twitter or never got back to old twitter.
 For other issues check known issues below or [submit a new issue](https://github.com/ZusorCode/GoodTwitter/issues).
